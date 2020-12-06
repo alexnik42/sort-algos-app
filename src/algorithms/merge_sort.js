@@ -1,42 +1,56 @@
-import {delay} from '../utils/utils';
+import { delay } from "../utils/utils";
 
-export async function mergeSort(arr, setArray) {
+export async function mergeSort(arr, setArray, start, end) {
+  await mergeSortHelper(arr, setArray, start, end);
+  for (let i = 0; i < arr.length; i++) {
+    await delay(10);
+    arr[i].isFinalPosition = true;
+    setArray([...arr]);
+  }
+}
 
-  console.log(arr)
-  async function merge(l, r, setArray) {
-    let res = [];
-    let l_idx = 0;
-    let r_idx = 0;
+async function mergeSortHelper(arr, setArray, start, end) {
+  async function merge(arr, start, mid, end, setArray) {
+    const res = [];
+    let old_start = start;
+    let old_mid = mid;
+    mid++;
 
-    while (l_idx < l.length && r_idx < r.length) {
-      if (l[l_idx].val < r[r_idx].val) {
-        res.push(l[l_idx]);
-        l_idx++;
+    while (start <= old_mid && mid <= end) {
+      if (arr[start].val <= arr[mid].val) {
+        res.push(arr[start]);
+        start++;
       } else {
-        res.push(r[r_idx]);
-        r_idx++;
+        res.push(arr[mid]);
+        mid++;
       }
     }
 
-    if (l_idx < l.length) {
-      res = res.concat(l.slice(l_idx))
-    }
-    if (r_idx < r.length) {
-      res = res.concat(r.slice(r_idx))
+    while (start <= old_mid) {
+      res.push(arr[start]);
+      start++;
     }
 
-    return res;
-  }
-  if (arr.length <= 1) {
-    return arr;
+    while (mid <= end) {
+      res.push(arr[mid]);
+      mid++;
+    }
+
+    for (let i = old_start; i <= end; i++) {
+      await delay(10);
+      arr[i] = res[i - old_start];
+      setArray([...arr]);
+    }
   }
 
-  const mid = Math.floor(arr.length/2);
-  const l = await mergeSort(arr.slice(0,mid), setArray);
-  const r = await mergeSort(arr.slice(mid), setArray);
-  
-  const ans = await merge(l, r, setArray);
-  await delay(30);
-  setArray([...ans]);
-  return ans;
-};
+  if (start >= end) {
+    return;
+  }
+
+  let mid = Math.floor((start + end) / 2);
+  await mergeSortHelper(arr, setArray, start, mid);
+  await mergeSortHelper(arr, setArray, mid + 1, end);
+
+  await merge(arr, start, mid, end, setArray);
+  await setArray([...arr]);
+}

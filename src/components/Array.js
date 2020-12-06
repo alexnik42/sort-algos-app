@@ -1,8 +1,8 @@
-import React from 'react';
-import { bubbleSort } from '../algorithms/bubble_sort';
-import { insertionSort } from '../algorithms/insertion_sort';
-import { mergeSort } from '../algorithms/merge_sort';
-import './Array.css';
+import React from "react";
+import { bubbleSort } from "../algorithms/bubble_sort";
+import { insertionSort } from "../algorithms/insertion_sort";
+import { mergeSort } from "../algorithms/merge_sort";
+import "./Array.css";
 
 function Array() {
   const [arr, setArray] = React.useState([]);
@@ -10,13 +10,11 @@ function Array() {
   function generateArray() {
     const arr = [];
     for (let i = 0; i < 100; i++) {
-      arr.push(
-        {
-          val: Math.ceil(Math.random() * 300),
-          isCurrent: false,
-          isFinalPosition: false
-        }
-      );
+      arr.push({
+        val: Math.ceil(Math.random() * 300),
+        isCurrent: false,
+        isFinalPosition: false,
+      });
     }
     return arr;
   }
@@ -32,9 +30,14 @@ function Array() {
 
   function visualizeItem(item, key) {
     return (
-      <div className={`array_col ${item.isCurrent ? 'current' : ''} ${item.isFinalPosition ? 'final' : ''}`} key={key} style={{height: item.val}}>
-      </div>
-    )
+      <div
+        className={`array_col ${item.isCurrent ? "current" : ""} ${
+          item.isFinalPosition ? "final" : ""
+        }`}
+        key={key}
+        style={{ height: item.val }}
+      ></div>
+    );
   }
 
   return (
@@ -44,12 +47,23 @@ function Array() {
           return visualizeItem(e, index);
         })}
       </div>
-      <button className="btn_sort" onClick={() => handleNewArray()}>Generate new array</button>
-      <button className="btn_sort" onClick={() => bubbleSort(arr, setArray)}>BubbleSort it!</button>
-      <button className="btn_sort" onClick={() => insertionSort(arr, setArray)}>InsertionSort it!</button>
-      <button className="btn_sort" onClick={() => mergeSort(arr, setArray)}>MergeSort it!</button>
+      <button className="btn_sort" onClick={() => handleNewArray()}>
+        Generate new array
+      </button>
+      <button className="btn_sort" onClick={() => bubbleSort(arr, setArray)}>
+        BubbleSort it!
+      </button>
+      <button className="btn_sort" onClick={() => insertionSort(arr, setArray)}>
+        InsertionSort it!
+      </button>
+      <button
+        className="btn_sort"
+        onClick={() => mergeSort(arr, setArray, 0, arr.length - 1)}
+      >
+        MergeSort it!
+      </button>
     </>
-  )
+  );
 }
 
 export default Array;
