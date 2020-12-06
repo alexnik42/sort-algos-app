@@ -1,0 +1,20 @@
+.array {
+  display: grid;
+  margin-top: 200px;
+  grid-template-columns: repeat(100, 10px);
+  justify-content: center;
+  align-items: baseline;
+}
+
+.array_col {
+  background-color: black;
+  margin: 2px;
+}
+
+.current {
+  background-color: yellow;
+}
+
+.final {
+  background-color: green;
+}
