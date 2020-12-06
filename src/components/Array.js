@@ -1,6 +1,7 @@
 import React from 'react';
 import { bubbleSort } from '../algorithms/bubble_sort';
 import { insertionSort } from '../algorithms/insertion_sort';
+import { mergeSort } from '../algorithms/merge_sort';
 import './Array.css';
 
 function Array() {
@@ -18,6 +19,11 @@ function Array() {
       );
     }
     return arr;
+  }
+
+  function handleNewArray() {
+    const new_arr = generateArray();
+    setArray(new_arr);
   }
 
   React.useEffect(() => {
@@ -38,8 +44,10 @@ function Array() {
           return visualizeItem(e, index);
         })}
       </div>
+      <button className="btn_sort" onClick={() => handleNewArray()}>Generate new array</button>
       <button className="btn_sort" onClick={() => bubbleSort(arr, setArray)}>BubbleSort it!</button>
       <button className="btn_sort" onClick={() => insertionSort(arr, setArray)}>InsertionSort it!</button>
+      <button className="btn_sort" onClick={() => mergeSort(arr, setArray)}>MergeSort it!</button>
     </>
   )
 }

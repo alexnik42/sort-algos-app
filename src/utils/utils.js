@@ -1,4 +1,4 @@
-export async function delay() {
+export async function delay(delayTime) {
   const timer = ms => new Promise(res => setTimeout(res, ms))
-  await timer(5);
+  await timer(delayTime);
 }
