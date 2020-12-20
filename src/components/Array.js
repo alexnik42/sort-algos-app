@@ -1,7 +1,11 @@
 import React from "react";
+import Nav from "./Nav";
+import Footer from "./Footer";
+
 import { bubbleSort } from "../algorithms/bubble_sort";
 import { insertionSort } from "../algorithms/insertion_sort";
 import { mergeSort } from "../algorithms/merge_sort";
+
 import "./Array.css";
 
 function Array() {
@@ -42,26 +46,20 @@ function Array() {
 
   return (
     <>
+      <Nav
+        handleNewArray={handleNewArray}
+        setArray={setArray}
+        arr={arr}
+        bubbleSort={bubbleSort}
+        insertionSort={insertionSort}
+        mergeSort={mergeSort}
+      ></Nav>
       <div className="array">
         {arr.map((e, index) => {
           return visualizeItem(e, index);
         })}
       </div>
-      <button className="btn_sort" onClick={() => handleNewArray()}>
-        Generate new array
-      </button>
-      <button className="btn_sort" onClick={() => bubbleSort(arr, setArray)}>
-        BubbleSort it!
-      </button>
-      <button className="btn_sort" onClick={() => insertionSort(arr, setArray)}>
-        InsertionSort it!
-      </button>
-      <button
-        className="btn_sort"
-        onClick={() => mergeSort(arr, setArray, 0, arr.length - 1)}
-      >
-        MergeSort it!
-      </button>
+      <Footer></Footer>
     </>
   );
 }
