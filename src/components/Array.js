@@ -8,12 +8,14 @@ import { mergeSort } from "../algorithms/merge_sort";
 
 import "./Array.css";
 
+const DEFAULT_SIZE = 100;
+
 function Array() {
   const [arr, setArray] = React.useState([]);
 
-  function generateArray() {
+  function generateArray(size) {
     const arr = [];
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < size; i++) {
       arr.push({
         val: Math.ceil(Math.random() * 300),
         isCurrent: false,
@@ -23,13 +25,13 @@ function Array() {
     return arr;
   }
 
-  function handleNewArray() {
-    const new_arr = generateArray();
+  function handleNewArray(size) {
+    const new_arr = generateArray(size);
     setArray(new_arr);
   }
 
   React.useEffect(() => {
-    setArray(generateArray());
+    setArray(generateArray(DEFAULT_SIZE));
   }, []);
 
   function visualizeItem(item, key) {
@@ -54,7 +56,10 @@ function Array() {
         insertionSort={insertionSort}
         mergeSort={mergeSort}
       ></Nav>
-      <div className="array">
+      <div
+        className="array"
+        style={{ gridTemplateColumns: `repeat(${arr.length}, 1fr)` }}
+      >
         {arr.map((e, index) => {
           return visualizeItem(e, index);
         })}

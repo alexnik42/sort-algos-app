@@ -12,6 +12,17 @@
   border-right: 5px solid black;
   flex-grow: 1;
   margin-right: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.sort_slider {
+  margin-right: 10px;
+}
+
+.sort_label {
+  margin-right: 10px;
 }
 
 .btn_sort {
