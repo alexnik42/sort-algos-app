@@ -1,1 +1,1 @@
-Implementation of different sorting algos
+Implementation of different sorting algos: quicksort, mergesort, bubble sort, insertion sort
