@@ -1,0 +1,28 @@
+.array {
+  background-color: rgb(230, 230, 230);
+  display: grid;
+  height: 100vh;
+  padding: 120px;
+  justify-content: center;
+  align-items: end;
+}
+
+.notSorted {
+  background-color: rgba(66, 134, 244, 0.8);
+}
+
+.isPivot {
+  background-color: rgba(237, 234, 59, 0.8);
+}
+
+.isCorrectPosition {
+  background-color: rgba(78, 216, 96, 0.8);
+}
+
+.isWrongPosition {
+  background-color: rgba(219, 57, 57, 0.8);
+}
+
+.isSorted {
+  background-color: rgba(169, 92, 232, 0.8);
+}

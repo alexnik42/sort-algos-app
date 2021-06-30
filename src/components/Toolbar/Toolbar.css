@@ -17,6 +17,10 @@
   justify-content: space-around;
 }
 
+.form-horizontal {
+  display: flex;
+}
+
 .sort_slider {
   margin-right: 10px;
 }
@@ -25,7 +29,6 @@
   margin-right: 10px;
 }
 
-.btn_sort {
-  height: 50px;
+.btn {
   margin-right: 30px;
 }
