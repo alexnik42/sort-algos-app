@@ -8,6 +8,7 @@ function Toolbar({
   generateNewArray,
   bubbleSort,
   insertionSort,
+  mergeSort,
   changeArraySize,
   changeSortingSpeed,
 }) {
@@ -80,7 +81,12 @@ function Toolbar({
         >
           Insertion Sort
         </button>
-        <button className="btn btn-secondary">MergeSort</button>
+        <button
+          className="btn btn-secondary"
+          onClick={() => mergeSort(array, sortingProperties.speed)}
+        >
+          MergeSort
+        </button>
         <button className="btn btn-secondary">QuickSort</button>
       </div>
     </div>

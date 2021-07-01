@@ -1,56 +1,85 @@
-import { delay } from "../utils/utils";
+import { delay, handleDispatch } from "../utils/utils";
+import { setNewArray } from "redux/actions/actions";
 
-export async function mergeSort(arr, setArray, start, end, delayTime) {
-  await mergeSortHelper(arr, setArray, start, end);
-  for (let i = 0; i < arr.length; i++) {
-    await delay(delayTime);
-    arr[i].isFinalPosition = true;
-    setArray([...arr]);
+async function merge(arr, start, mid, end, dispatch, speed) {
+  const res = [];
+  const auxiliaryRes = [];
+
+  let k = start;
+  let m = mid + 1;
+
+  while (k <= mid && m <= end) {
+    const target = JSON.parse(JSON.stringify(arr));
+    if (arr[k].val <= arr[m].val) {
+      target[k].status = "isCorrectPosition";
+      target[m].status = "isCorrectPosition";
+      auxiliaryRes.push(
+        res.concat(target.slice(k, mid + 1).concat(target.slice(m, end + 1)))
+      );
+      res.push(arr[k++]);
+    } else {
+      target[k].status = "isWrongPosition";
+      target[m].status = "isWrongPosition";
+      auxiliaryRes.push(
+        res.concat(target.slice(k, mid + 1).concat(target.slice(m, end + 1)))
+      );
+
+      const auxTarget = JSON.parse(JSON.stringify(arr));
+      auxTarget[k].status = "isCorrectPosition";
+
+      res.push(arr[m++]);
+
+      const prevState = JSON.parse(JSON.stringify(res));
+      prevState[prevState.length - 1].status = "isCorrectPosition";
+      auxiliaryRes.push(
+        prevState.concat(
+          auxTarget.slice(k, mid + 1).concat(auxTarget.slice(m, end + 1))
+        )
+      );
+    }
+    if (end - start + 1 === arr.length) {
+      res[res.length - 1].status = "isSorted";
+    }
+  }
+
+  while (k <= mid) {
+    res.push(arr[k++]);
+    if (end - start + 1 === arr.length) {
+      res[res.length - 1].status = "isSorted";
+    }
+    auxiliaryRes.push(
+      res.concat([...arr].slice(k, mid + 1).concat([...arr].slice(m, end + 1)))
+    );
+  }
+
+  while (m <= end) {
+    res.push(arr[m++]);
+    if (end - start + 1 === arr.length) {
+      res[res.length - 1].status = "isSorted";
+    }
+    auxiliaryRes.push(
+      res.concat([...arr].slice(k, mid + 1).concat([...arr].slice(m, end + 1)))
+    );
+  }
+
+  for (let i = 0; i < auxiliaryRes.length; i++) {
+    for (let j = start; j <= end; j++) {
+      arr[j] = auxiliaryRes[i][j - start];
+    }
+    await delay(speed, () => handleDispatch(dispatch, setNewArray, arr));
   }
 }
 
-async function mergeSortHelper(arr, setArray, start, end, delayTime) {
-  async function merge(arr, start, mid, end, setArray) {
-    const res = [];
-    let old_start = start;
-    let old_mid = mid;
-    mid++;
-
-    while (start <= old_mid && mid <= end) {
-      if (arr[start].val <= arr[mid].val) {
-        res.push(arr[start]);
-        start++;
-      } else {
-        res.push(arr[mid]);
-        mid++;
-      }
-    }
-
-    while (start <= old_mid) {
-      res.push(arr[start]);
-      start++;
-    }
-
-    while (mid <= end) {
-      res.push(arr[mid]);
-      mid++;
-    }
-
-    for (let i = old_start; i <= end; i++) {
-      await delay(10000)
-      arr[i] = res[i - old_start];
-      await setArray([...arr]);
-    }
-  }
-
-  if (start >= end) {
+async function doMergeSort(dispatch, array, start, end, speed) {
+  if (start === end) {
     return;
   }
-
   let mid = Math.floor((start + end) / 2);
-  await mergeSortHelper(arr, setArray, start, mid, delayTime);
-  await mergeSortHelper(arr, setArray, mid + 1, end, delayTime);
+  await doMergeSort(dispatch, array, start, mid, speed);
+  await doMergeSort(dispatch, array, mid + 1, end, speed);
+  await merge(array, start, mid, end, dispatch, speed);
+}
 
-  await merge(arr, start, mid, end, setArray);
-  await setArray([...arr]);
+export function mergeSort(dispatch, array, speed) {
+  doMergeSort(dispatch, array, 0, array.length - 1, speed);
 }

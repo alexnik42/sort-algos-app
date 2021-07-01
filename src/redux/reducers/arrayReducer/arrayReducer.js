@@ -8,7 +8,7 @@ import { DEFAULT_RANGE, DEFAULT_SIZE } from "utils/constants";
 const initialState = {
   array: Array.from({ length: DEFAULT_SIZE }, () => {
     return {
-      val: Math.floor(Math.random() * DEFAULT_RANGE),
+      val: Math.max(Math.floor(Math.random() * DEFAULT_RANGE), 1),
       status: "notSorted",
     };
   }),
@@ -22,7 +22,7 @@ export const arrayReducer = (state = initialState, action) => {
         ...state,
         array: Array.from({ length: action.payload }, () => {
           return {
-            val: Math.floor(Math.random() * DEFAULT_RANGE),
+            val: Math.max(Math.floor(Math.random() * DEFAULT_RANGE), 1),
             status: "notSorted",
           };
         }),
@@ -37,7 +37,7 @@ export const arrayReducer = (state = initialState, action) => {
         ...state,
         array: Array.from({ length: action.payload }, () => {
           return {
-            val: Math.floor(Math.random() * DEFAULT_RANGE),
+            val: Math.max(Math.floor(Math.random() * DEFAULT_RANGE), 1),
             status: "notSorted",
           };
         }),

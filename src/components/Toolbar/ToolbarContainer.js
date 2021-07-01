@@ -6,6 +6,7 @@ import {
 } from "redux/actions/actions";
 import { bubbleSort } from "algorithms/bubbleSort";
 import { insertionSort } from "algorithms/insertionSort";
+import { mergeSort } from "algorithms/mergeSort";
 import Toolbar from "./Toolbar";
 
 const mapStateToProps = (state) => {
@@ -31,6 +32,9 @@ const mapDispatchToProps = () => (dispatch) => ({
   },
   insertionSort: (array, speed) => {
     insertionSort(dispatch, array, speed);
+  },
+  mergeSort: (array, speed) => {
+    mergeSort(dispatch, array, speed);
   },
 });
 
