@@ -4,8 +4,11 @@ import "./Toolbar.css";
 function Toolbar({
   array,
   size,
+  isSortRunning,
   speed,
   generateNewArray,
+  setSortingActive,
+  setSortingInActive,
   bubbleSort,
   insertionSort,
   mergeSort,
@@ -26,6 +29,25 @@ function Toolbar({
     }));
   }
 
+  async function handleButtonClick(event) {
+    setSortingActive();
+    let sortingAlgorithm = event.target.name;
+    switch (sortingAlgorithm) {
+      case "bubbleSort":
+        await bubbleSort(array, sortingProperties.speed);
+        break;
+      case "insertionSort":
+        await insertionSort(array, sortingProperties.speed);
+        break;
+      case "mergeSort":
+        await mergeSort(array, sortingProperties.speed);
+        break;
+      default:
+        return;
+    }
+    setSortingInActive();
+  }
+
   React.useEffect(() => {
     changeArraySize(sortingProperties.size);
   }, [changeArraySize, sortingProperties.size]);
@@ -39,6 +61,7 @@ function Toolbar({
       <div className="nav-array">
         <button
           className="btn btn-primary"
+          disabled={isSortRunning}
           onClick={() => generateNewArray(sortingProperties.size)}
         >
           Generate new array
@@ -71,23 +94,31 @@ function Toolbar({
       <div className="nav_sort_algos">
         <button
           className="btn btn-secondary"
-          onClick={() => bubbleSort(array, sortingProperties.speed)}
+          name="bubbleSort"
+          disabled={isSortRunning}
+          onClick={handleButtonClick}
         >
           Bubble Sort
         </button>
         <button
           className="btn btn-secondary"
-          onClick={() => insertionSort(array, sortingProperties.speed)}
+          name="insertionSort"
+          disabled={isSortRunning}
+          onClick={handleButtonClick}
         >
           Insertion Sort
         </button>
         <button
           className="btn btn-secondary"
-          onClick={() => mergeSort(array, sortingProperties.speed)}
+          name="mergeSort"
+          disabled={isSortRunning}
+          onClick={handleButtonClick}
         >
           MergeSort
         </button>
-        <button className="btn btn-secondary">QuickSort</button>
+        <button className="btn btn-secondary" disabled>
+          QuickSort
+        </button>
       </div>
     </div>
   );

@@ -80,6 +80,6 @@ async function doMergeSort(dispatch, array, start, end, speed) {
   await merge(array, start, mid, end, dispatch, speed);
 }
 
-export function mergeSort(dispatch, array, speed) {
-  doMergeSort(dispatch, array, 0, array.length - 1, speed);
+export async function mergeSort(dispatch, array, speed) {
+  await doMergeSort(dispatch, array, 0, array.length - 1, speed);
 }

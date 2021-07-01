@@ -2,6 +2,8 @@ import {
   CHANGE_ARRAY_SIZE,
   SET_NEW_ARRAY,
   GENERATE_NEW_ARRAY,
+  SET_SORTING_ACTIVE,
+  SET_SORTING_INACTIVE,
 } from "redux/types/types";
 import { DEFAULT_RANGE, DEFAULT_SIZE } from "utils/constants";
 
@@ -13,6 +15,7 @@ const initialState = {
     };
   }),
   size: DEFAULT_SIZE,
+  isSortRunning: false,
 };
 
 export const arrayReducer = (state = initialState, action) => {
@@ -41,6 +44,16 @@ export const arrayReducer = (state = initialState, action) => {
             status: "notSorted",
           };
         }),
+      };
+    case SET_SORTING_ACTIVE:
+      return {
+        ...state,
+        isSortRunning: true,
+      };
+    case SET_SORTING_INACTIVE:
+      return {
+        ...state,
+        isSortRunning: false,
       };
     default:
       return state;

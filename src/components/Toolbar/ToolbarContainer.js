@@ -3,6 +3,8 @@ import {
   changeArraySize,
   changeSortingSpeed,
   generateNewArray,
+  setSortingActive,
+  setSortingInActive,
 } from "redux/actions/actions";
 import { bubbleSort } from "algorithms/bubbleSort";
 import { insertionSort } from "algorithms/insertionSort";
@@ -13,6 +15,7 @@ const mapStateToProps = (state) => {
   return {
     array: state.arrayProperties.array,
     size: state.arrayProperties.size,
+    isSortRunning: state.arrayProperties.isSortRunning,
     speed: state.speedProperties.speed,
   };
 };
@@ -27,14 +30,20 @@ const mapDispatchToProps = () => (dispatch) => ({
   changeSortingSpeed: (speed) => {
     dispatch(changeSortingSpeed(speed));
   },
-  bubbleSort: (array, speed) => {
-    bubbleSort(dispatch, array, speed);
+  setSortingActive: () => {
+    dispatch(setSortingActive());
   },
-  insertionSort: (array, speed) => {
-    insertionSort(dispatch, array, speed);
+  setSortingInActive: () => {
+    dispatch(setSortingInActive());
   },
-  mergeSort: (array, speed) => {
-    mergeSort(dispatch, array, speed);
+  bubbleSort: async (array, speed) => {
+    await bubbleSort(dispatch, array, speed);
+  },
+  insertionSort: async (array, speed) => {
+    await insertionSort(dispatch, array, speed);
+  },
+  mergeSort: async (array, speed) => {
+    await mergeSort(dispatch, array, speed);
   },
 });
 
