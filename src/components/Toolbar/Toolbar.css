@@ -21,8 +21,9 @@
   display: flex;
 }
 
-.sort-slider {
-  margin-right: 10px;
+.form-range {
+  margin-right: 80px;
+  width: auto;
 }
 
 .sort-label {

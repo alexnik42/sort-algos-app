@@ -73,24 +73,26 @@ function Toolbar({
         <form className="form-horizontal">
           <label className="sort-label">Array's size</label>
           <input
-            className="sort-slider"
+            className="form-range"
             type="range"
             name="size"
             min="3"
             max="100"
             step="5"
             value={sortingProperties.size}
+            disabled={isSortRunning}
             onChange={handleInputChange}
           ></input>
           <label className="sort-label">Sorting speed</label>
           <input
-            className="sort-slider"
+            className="form-range"
             type="range"
             name="speed"
             min="2"
             max="80"
             step="1"
             value={sortingProperties.speed}
+            disabled={isSortRunning}
             onChange={handleInputChange}
           ></input>
         </form>
