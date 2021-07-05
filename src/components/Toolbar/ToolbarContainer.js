@@ -9,6 +9,7 @@ import {
 import { bubbleSort } from "algorithms/bubbleSort";
 import { insertionSort } from "algorithms/insertionSort";
 import { mergeSort } from "algorithms/mergeSort";
+import { quickSort } from "algorithms/quickSort";
 import Toolbar from "./Toolbar";
 
 const mapStateToProps = (state) => {
@@ -44,6 +45,9 @@ const mapDispatchToProps = () => (dispatch) => ({
   },
   mergeSort: async (array, speed) => {
     await mergeSort(dispatch, array, speed);
+  },
+  quickSort: async (array, speed) => {
+    await quickSort(dispatch, array, speed);
   },
 });
 

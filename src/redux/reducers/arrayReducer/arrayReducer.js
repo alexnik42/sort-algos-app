@@ -5,13 +5,18 @@ import {
   SET_SORTING_ACTIVE,
   SET_SORTING_INACTIVE,
 } from "redux/types/types";
-import { DEFAULT_RANGE, DEFAULT_SIZE } from "utils/constants";
+import {
+  DEFAULT_RANGE_MAX,
+  DEFAULT_RANGE_MIN,
+  DEFAULT_SIZE,
+} from "utils/constants";
+import { getRandomIntInclusive } from "utils/utils";
 
 const initialState = {
   array: Array.from({ length: DEFAULT_SIZE }, () => {
     return {
-      val: Math.max(Math.floor(Math.random() * DEFAULT_RANGE), 1),
-      status: "notSorted",
+      val: getRandomIntInclusive(DEFAULT_RANGE_MIN, DEFAULT_RANGE_MAX),
+      status: "not-sorted",
     };
   }),
   size: DEFAULT_SIZE,
@@ -25,8 +30,8 @@ export const arrayReducer = (state = initialState, action) => {
         ...state,
         array: Array.from({ length: action.payload }, () => {
           return {
-            val: Math.max(Math.floor(Math.random() * DEFAULT_RANGE), 1),
-            status: "notSorted",
+            val: getRandomIntInclusive(DEFAULT_RANGE_MIN, DEFAULT_RANGE_MAX),
+            status: "not-sorted",
           };
         }),
       };
@@ -40,8 +45,8 @@ export const arrayReducer = (state = initialState, action) => {
         ...state,
         array: Array.from({ length: action.payload }, () => {
           return {
-            val: Math.max(Math.floor(Math.random() * DEFAULT_RANGE), 1),
-            status: "notSorted",
+            val: getRandomIntInclusive(DEFAULT_RANGE_MIN, DEFAULT_RANGE_MAX),
+            status: "not-sorted",
           };
         }),
       };

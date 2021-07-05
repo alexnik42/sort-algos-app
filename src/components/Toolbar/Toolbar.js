@@ -12,6 +12,7 @@ function Toolbar({
   bubbleSort,
   insertionSort,
   mergeSort,
+  quickSort,
   changeArraySize,
   changeSortingSpeed,
 }) {
@@ -42,6 +43,9 @@ function Toolbar({
       case "mergeSort":
         await mergeSort(array, sortingProperties.speed);
         break;
+      case "quickSort":
+        await quickSort(array, sortingProperties.speed);
+        break;
       default:
         return;
     }
@@ -67,9 +71,9 @@ function Toolbar({
           Generate new array
         </button>
         <form className="form-horizontal">
-          <label className="sort_label">Array's size</label>
+          <label className="sort-label">Array's size</label>
           <input
-            className="sort_slider"
+            className="sort-slider"
             type="range"
             name="size"
             min="3"
@@ -78,9 +82,9 @@ function Toolbar({
             value={sortingProperties.size}
             onChange={handleInputChange}
           ></input>
-          <label className="sort_label">Sorting speed</label>
+          <label className="sort-label">Sorting speed</label>
           <input
-            className="sort_slider"
+            className="sort-slider"
             type="range"
             name="speed"
             min="2"
@@ -91,7 +95,7 @@ function Toolbar({
           ></input>
         </form>
       </div>
-      <div className="nav_sort_algos">
+      <div className="nav-sort-algos">
         <button
           className="btn btn-secondary"
           name="bubbleSort"
@@ -116,7 +120,12 @@ function Toolbar({
         >
           MergeSort
         </button>
-        <button className="btn btn-secondary" disabled>
+        <button
+          className="btn btn-secondary"
+          name="quickSort"
+          disabled={isSortRunning}
+          onClick={handleButtonClick}
+        >
           QuickSort
         </button>
       </div>

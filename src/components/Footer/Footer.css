@@ -1,4 +1,10 @@
-.footer_author {
-  margin-top: 50px;
-  margin-left: 15px;
+.footer-author {
+  padding: 0 60px;
+}
+
+
+@media screen and (max-width:1550px) {
+  .footer-author {
+    padding: 0 30px;
+  }
 }

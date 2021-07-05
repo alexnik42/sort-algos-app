@@ -1,28 +1,41 @@
 .array {
-  background-color: rgb(230, 230, 230);
   display: grid;
-  height: 100vh;
-  padding: 120px;
+  min-height: 750px;
+  padding: 120px 60px 30px 60px;
   justify-content: center;
   align-items: end;
 }
 
-.notSorted {
+.array-col {
+  padding-top: 7px;
+  text-align: center;
+  font-family: sans-serif;
+  font-weight: 700;
+  color: #fff;
+}
+
+.not-sorted {
   background-color: rgba(66, 134, 244, 0.8);
 }
 
-.isPivot {
+.is-pivot {
   background-color: rgba(237, 234, 59, 0.8);
 }
 
-.isCorrectPosition {
+.is-correct-position {
   background-color: rgba(78, 216, 96, 0.8);
 }
 
-.isWrongPosition {
+.is-wrong-position {
   background-color: rgba(219, 57, 57, 0.8);
 }
 
-.isSorted {
+.is-sorted {
   background-color: rgba(169, 92, 232, 0.8);
+}
+
+@media screen and (max-width: 1550px) {
+  .array {
+    padding: 30px;
+  }
 }

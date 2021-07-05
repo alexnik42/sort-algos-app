@@ -21,14 +21,22 @@
   display: flex;
 }
 
-.sort_slider {
+.sort-slider {
   margin-right: 10px;
 }
 
-.sort_label {
+.sort-label {
   margin-right: 10px;
 }
 
 .btn {
   margin-right: 30px;
+}
+
+@media screen and (max-width:1280px) {
+  .btn {
+    margin-right: 10px;
+    max-width: 80px;
+    font-size: 12px;
+  }
 }
