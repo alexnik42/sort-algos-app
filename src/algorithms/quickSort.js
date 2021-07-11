@@ -14,7 +14,7 @@ export async function quickSort(dispatch, array, speed) {
 
 function doQuickSort(array, start, end, auxiliaryRes) {
   if (start >= end) {
-    array[Math.max(Math.min(start, end), 0)].status = "is-sorted";
+    array[Math.max(Math.min(start, end), 0)].status = "columnIsSorted";
     return;
   }
 
@@ -23,7 +23,7 @@ function doQuickSort(array, start, end, auxiliaryRes) {
 
   let randIndex = Math.floor(min + Math.random() * (max + 1 - min));
   let pivot = array[randIndex].val;
-  array[randIndex].status = "is-pivot";
+  array[randIndex].status = "columnIsPivot";
   auxiliaryRes.push(JSON.parse(JSON.stringify(array)));
 
   let pivotCurrentIndex = start;
@@ -31,26 +31,26 @@ function doQuickSort(array, start, end, auxiliaryRes) {
   auxiliaryRes.push(JSON.parse(JSON.stringify(array)));
 
   for (let i = start + 1; i <= end; i++) {
-    array[i].status = "is-correct-position";
+    array[i].status = "columnCorrectPosition";
     auxiliaryRes.push(JSON.parse(JSON.stringify(array)));
     if (pivot <= array[i].val) {
-      array[i].status = "not-sorted";
+      array[i].status = "columnNotSorted";
     } else {
-      array[i].status = "is-wrong-position";
+      array[i].status = "columnWrongPosition";
       auxiliaryRes.push(JSON.parse(JSON.stringify(array)));
 
       const valueToSwap = JSON.parse(JSON.stringify(array[i]));
       array.splice(i, 1);
       array.splice(pivotCurrentIndex++, 0, valueToSwap);
-      array[pivotCurrentIndex - 1].status = "is-correct-position";
+      array[pivotCurrentIndex - 1].status = "columnCorrectPosition";
       auxiliaryRes.push(JSON.parse(JSON.stringify(array)));
 
-      array[pivotCurrentIndex - 1].status = "not-sorted";
+      array[pivotCurrentIndex - 1].status = "columnNotSorted";
     }
     auxiliaryRes.push(JSON.parse(JSON.stringify(array)));
   }
 
-  array[pivotCurrentIndex].status = "is-sorted";
+  array[pivotCurrentIndex].status = "columnIsSorted";
   auxiliaryRes.push(JSON.parse(JSON.stringify(array)));
 
   doQuickSort(array, start, pivotCurrentIndex - 1, auxiliaryRes);

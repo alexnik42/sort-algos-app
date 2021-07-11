@@ -1,10 +1,45 @@
-.footer-author {
+.footerAuthor {
   padding: 0 60px;
 }
 
+@media screen and (max-width: 1650px) {
+  .footerAuthor {
+    font-size: 14px;
+  }
+}
 
-@media screen and (max-width:1550px) {
-  .footer-author {
+@media screen and (max-width: 1550px) {
+  .footerAuthor {
     padding: 0 30px;
+  }
+}
+
+@media screen and (max-width: 1450px) {
+  .footerAuthor {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 1250px) {
+  .footerAuthor {
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .footerAuthor {
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .footerAuthor {
+    font-size: 8px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .footerAuthor {
+    font-size: 7px;
   }
 }

@@ -1,12 +1,19 @@
-.array {
-  display: grid;
-  min-height: 750px;
+.arrayContainer {
+  display: flex;
+  width: 100%;
   padding: 120px 60px 30px 60px;
-  justify-content: center;
-  align-items: end;
 }
 
-.array-col {
+.arrayBody {
+  display: grid;
+  max-width: 100%;
+  margin: 0 auto;
+  min-height: 650px;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.arrayColumn {
   padding-top: 7px;
   text-align: center;
   font-family: sans-serif;
@@ -14,28 +21,34 @@
   color: #fff;
 }
 
-.not-sorted {
+.columnNotSorted {
   background-color: rgba(66, 134, 244, 0.8);
 }
 
-.is-pivot {
+.columnIsPivot {
   background-color: rgba(237, 234, 59, 0.8);
 }
 
-.is-correct-position {
+.columnCorrectPosition {
   background-color: rgba(78, 216, 96, 0.8);
 }
 
-.is-wrong-position {
+.columnWrongPosition {
   background-color: rgba(219, 57, 57, 0.8);
 }
 
-.is-sorted {
+.columnIsSorted {
   background-color: rgba(169, 92, 232, 0.8);
 }
 
 @media screen and (max-width: 1550px) {
-  .array {
+  .arrayBody {
     padding: 30px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .arrayContainer {
+    padding-top: 0px;
   }
 }

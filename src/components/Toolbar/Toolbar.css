@@ -1,4 +1,4 @@
-.nav-container {
+.toolbarContainer {
   width: auto;
   height: 60px;
   padding: 15px;
@@ -8,7 +8,7 @@
   background-color: aquamarine;
 }
 
-.nav-array {
+.toolbarArrayGeneration {
   border-right: 5px solid black;
   flex-grow: 1;
   margin-right: 30px;
@@ -17,27 +17,217 @@
   justify-content: space-around;
 }
 
-.form-horizontal {
+.toolbarSortingAlgorithms {
+  flex-grow: 2;
   display: flex;
+  justify-content: space-around;
 }
 
-.form-range {
-  margin-right: 80px;
+.toolbarGenerateNewArray {
+  flex-grow: 2;
+}
+
+.toolbarForm {
+  display: flex;
+  flex-grow: 1;
+}
+
+.toolbarArrayProperties {
+  margin-right: 40px;
   width: auto;
+  height: auto;
 }
 
-.sort-label {
+.toolbarPropertiesRange {
+  font-size: 16px;
   margin-right: 10px;
 }
 
-.btn {
-  margin-right: 30px;
+.toolbarButton {
+  border-radius: 20px;
+  width: 180px;
 }
 
-@media screen and (max-width:1280px) {
-  .btn {
-    margin-right: 10px;
-    max-width: 80px;
+.toolbarGenerateArrayButton {
+  margin-right: 20px;
+}
+
+@media screen and (max-width: 1650px) {
+  .toolbarButton {
+    max-width: 150px;
+    font-size: 14px;
+  }
+
+  .toolbarGenerateArrayButton {
+    max-width: 200px;
+  }
+
+  .toolbarPropertiesRange {
+    font-size: 14px;
+  }
+
+  .toolbarArrayProperties {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 1450px) {
+  .toolbarButton {
+    max-width: 120px;
     font-size: 12px;
+  }
+
+  .toolbarGenerateArrayButton {
+    max-width: 150px;
+  }
+
+  .toolbarPropertiesRange {
+    font-size: 12px;
+  }
+
+  .toolbarArrayProperties {
+    font-size: 12px;
+    margin-right: 20px;
+  }
+}
+
+@media screen and (max-width: 1250px) {
+  .toolbarButton {
+    max-width: 100px;
+    font-size: 10px;
+  }
+
+  .toolbarGenerateArrayButton {
+    max-width: 120px;
+    margin-right: 10px;
+  }
+
+  .toolbarPropertiesRange {
+    font-size: 10px;
+  }
+
+  .toolbarArrayProperties {
+    font-size: 10px;
+    margin-right: 10px;
+    max-width: 120px;
+  }
+}
+
+@media screen and (max-width: 1050px) {
+  .toolbarSortingAlgorithms {
+    justify-content: space-between;
+  }
+
+  .toolbarArrayGeneration {
+    margin-right: 10px;
+  }
+
+  .toolbarArrayProperties {
+    max-width: 80px;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .toolbarButton {
+    max-width: 90px;
+    font-size: 8px;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .toolbarButton {
+    max-width: 80px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .toolbarContainer {
+    flex-flow: column;
+    flex-direction: column;
+    height: auto;
+  }
+
+  .toolbarArrayGeneration {
+    margin-bottom: 30px;
+    border: none;
+    width: 100%;
+    margin-right: 0;
+    justify-content: space-between;
+  }
+
+  .toolbarSortingAlgorithms {
+    width: 100%;
+  }
+
+  .toolbarForm {
+    justify-content: space-between;
+  }
+
+  .toolbarForm :last-child {
+    margin-right: 0;
+  }
+
+  .toolbarArrayProperties {
+    max-width: 120px;
+  }
+
+  .toolbarPropertiesRange {
+    font-size: 12px;
+  }
+
+  .toolbarButton {
+    min-width: 120px;
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .toolbarArrayProperties {
+    max-width: 100px;
+  }
+
+  .toolbarPropertiesRange {
+    font-size: 10px;
+  }
+
+  .toolbarButton {
+    min-width: 100px;
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .toolbarArrayProperties {
+    max-width: 80px;
+  }
+
+  .toolbarPropertiesRange {
+    font-size: 8px;
+  }
+
+  .toolbarButton {
+    min-width: 80px;
+    font-size: 8px;
+    padding: 6px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .toolbarContainer {
+    padding: 5px;
+  }
+
+  .toolbarArrayProperties {
+    max-width: 40px;
+  }
+
+  .toolbarPropertiesRange {
+    font-size: 7px;
+  }
+
+  .toolbarButton {
+    min-width: 30px;
+    font-size: 7px;
+    margin: 3px;
   }
 }

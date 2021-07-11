@@ -11,26 +11,26 @@ async function merge(arr, start, mid, end, dispatch, speed) {
   while (k <= mid && m <= end) {
     const target = JSON.parse(JSON.stringify(arr));
     if (arr[k].val <= arr[m].val) {
-      target[k].status = "is-correct-position";
-      target[m].status = "is-correct-position";
+      target[k].status = "columnCorrectPosition";
+      target[m].status = "columnCorrectPosition";
       auxiliaryRes.push(
         res.concat(target.slice(k, mid + 1).concat(target.slice(m, end + 1)))
       );
       res.push(arr[k++]);
     } else {
-      target[k].status = "is-wrong-position";
-      target[m].status = "is-wrong-position";
+      target[k].status = "columnWrongPosition";
+      target[m].status = "columnWrongPosition";
       auxiliaryRes.push(
         res.concat(target.slice(k, mid + 1).concat(target.slice(m, end + 1)))
       );
 
       const auxTarget = JSON.parse(JSON.stringify(arr));
-      auxTarget[k].status = "is-correct-position";
+      auxTarget[k].status = "columnCorrectPosition";
 
       res.push(arr[m++]);
 
       const prevState = JSON.parse(JSON.stringify(res));
-      prevState[prevState.length - 1].status = "is-correct-position";
+      prevState[prevState.length - 1].status = "columnCorrectPosition";
       auxiliaryRes.push(
         prevState.concat(
           auxTarget.slice(k, mid + 1).concat(auxTarget.slice(m, end + 1))
@@ -38,14 +38,14 @@ async function merge(arr, start, mid, end, dispatch, speed) {
       );
     }
     if (end - start + 1 === arr.length) {
-      res[res.length - 1].status = "is-sorted";
+      res[res.length - 1].status = "columnIsSorted";
     }
   }
 
   while (k <= mid) {
     res.push(arr[k++]);
     if (end - start + 1 === arr.length) {
-      res[res.length - 1].status = "is-sorted";
+      res[res.length - 1].status = "columnIsSorted";
     }
     auxiliaryRes.push(
       res.concat([...arr].slice(k, mid + 1).concat([...arr].slice(m, end + 1)))
@@ -55,7 +55,7 @@ async function merge(arr, start, mid, end, dispatch, speed) {
   while (m <= end) {
     res.push(arr[m++]);
     if (end - start + 1 === arr.length) {
-      res[res.length - 1].status = "is-sorted";
+      res[res.length - 1].status = "columnIsSorted";
     }
     auxiliaryRes.push(
       res.concat([...arr].slice(k, mid + 1).concat([...arr].slice(m, end + 1)))

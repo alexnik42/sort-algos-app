@@ -61,19 +61,21 @@ function Toolbar({
   }, [changeSortingSpeed, sortingProperties.speed]);
 
   return (
-    <div className="nav-container">
-      <div className="nav-array">
-        <button
-          className="btn btn-primary"
-          disabled={isSortRunning}
-          onClick={() => generateNewArray(sortingProperties.size)}
-        >
-          Generate new array
-        </button>
-        <form className="form-horizontal">
-          <label className="sort-label">Array's size</label>
+    <div className="toolbarContainer">
+      <div className="toolbarArrayGeneration">
+        <div className="toolbarGenerateNewArray">
+          <button
+            className="btn btn-primary toolbarButton toolbarGenerateArrayButton"
+            disabled={isSortRunning}
+            onClick={() => generateNewArray(sortingProperties.size)}
+          >
+            Generate new array
+          </button>
+        </div>
+        <form className="toolbarForm">
+          <label className="toolbarPropertiesRange">Array's size</label>
           <input
-            className="form-range"
+            className="form-range toolbarArrayProperties"
             type="range"
             name="size"
             min="3"
@@ -83,9 +85,9 @@ function Toolbar({
             disabled={isSortRunning}
             onChange={handleInputChange}
           ></input>
-          <label className="sort-label">Sorting speed</label>
+          <label className="toolbarPropertiesRange">Sorting speed</label>
           <input
-            className="form-range"
+            className="form-range toolbarArrayProperties"
             type="range"
             name="speed"
             min="2"
@@ -97,9 +99,9 @@ function Toolbar({
           ></input>
         </form>
       </div>
-      <div className="nav-sort-algos">
+      <div className="toolbarSortingAlgorithms">
         <button
-          className="btn btn-secondary"
+          className="btn btn-secondary toolbarButton"
           name="bubbleSort"
           disabled={isSortRunning}
           onClick={handleButtonClick}
@@ -107,7 +109,7 @@ function Toolbar({
           Bubble Sort
         </button>
         <button
-          className="btn btn-secondary"
+          className="btn btn-secondary toolbarButton"
           name="insertionSort"
           disabled={isSortRunning}
           onClick={handleButtonClick}
@@ -115,7 +117,7 @@ function Toolbar({
           Insertion Sort
         </button>
         <button
-          className="btn btn-secondary"
+          className="btn btn-secondary toolbarButton"
           name="mergeSort"
           disabled={isSortRunning}
           onClick={handleButtonClick}
@@ -123,7 +125,7 @@ function Toolbar({
           MergeSort
         </button>
         <button
-          className="btn btn-secondary"
+          className="btn btn-secondary toolbarButton"
           name="quickSort"
           disabled={isSortRunning}
           onClick={handleButtonClick}

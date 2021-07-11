@@ -16,7 +16,7 @@ const initialState = {
   array: Array.from({ length: DEFAULT_SIZE }, () => {
     return {
       val: getRandomIntInclusive(DEFAULT_RANGE_MIN, DEFAULT_RANGE_MAX),
-      status: "not-sorted",
+      status: "columnNotSorted",
     };
   }),
   size: DEFAULT_SIZE,
@@ -31,7 +31,7 @@ export const arrayReducer = (state = initialState, action) => {
         array: Array.from({ length: action.payload }, () => {
           return {
             val: getRandomIntInclusive(DEFAULT_RANGE_MIN, DEFAULT_RANGE_MAX),
-            status: "not-sorted",
+            status: "columnNotSorted",
           };
         }),
       };
@@ -46,7 +46,7 @@ export const arrayReducer = (state = initialState, action) => {
         array: Array.from({ length: action.payload }, () => {
           return {
             val: getRandomIntInclusive(DEFAULT_RANGE_MIN, DEFAULT_RANGE_MAX),
-            status: "not-sorted",
+            status: "columnNotSorted",
           };
         }),
       };
