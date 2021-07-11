@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/sort-algos-app/static/css/main.4d8d75ce.chunk.css",
-    "main.js": "/sort-algos-app/static/js/main.e5d9be63.chunk.js",
-    "main.js.map": "/sort-algos-app/static/js/main.e5d9be63.chunk.js.map",
+    "main.css": "/sort-algos-app/static/css/main.74e6af1d.chunk.css",
+    "main.js": "/sort-algos-app/static/js/main.b79f98e5.chunk.js",
+    "main.js.map": "/sort-algos-app/static/js/main.b79f98e5.chunk.js.map",
     "runtime-main.js": "/sort-algos-app/static/js/runtime-main.daecd5f1.js",
     "runtime-main.js.map": "/sort-algos-app/static/js/runtime-main.daecd5f1.js.map",
     "static/js/2.f4be4518.chunk.js": "/sort-algos-app/static/js/2.f4be4518.chunk.js",
     "static/js/2.f4be4518.chunk.js.map": "/sort-algos-app/static/js/2.f4be4518.chunk.js.map",
     "index.html": "/sort-algos-app/index.html",
-    "static/css/main.4d8d75ce.chunk.css.map": "/sort-algos-app/static/css/main.4d8d75ce.chunk.css.map",
+    "static/css/main.74e6af1d.chunk.css.map": "/sort-algos-app/static/css/main.74e6af1d.chunk.css.map",
     "static/js/2.f4be4518.chunk.js.LICENSE.txt": "/sort-algos-app/static/js/2.f4be4518.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.daecd5f1.js",
     "static/js/2.f4be4518.chunk.js",
-    "static/css/main.4d8d75ce.chunk.css",
-    "static/js/main.e5d9be63.chunk.js"
+    "static/css/main.74e6af1d.chunk.css",
+    "static/js/main.b79f98e5.chunk.js"
   ]
 }
