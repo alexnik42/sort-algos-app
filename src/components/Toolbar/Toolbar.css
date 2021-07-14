@@ -74,19 +74,14 @@
 @media screen and (max-width: 1450px) {
   .toolbarButton {
     max-width: 120px;
-    font-size: 12px;
   }
 
   .toolbarGenerateArrayButton {
     max-width: 150px;
-  }
-
-  .toolbarPropertiesRange {
     font-size: 12px;
   }
 
   .toolbarArrayProperties {
-    font-size: 12px;
     margin-right: 20px;
   }
 }
@@ -94,7 +89,7 @@
 @media screen and (max-width: 1250px) {
   .toolbarButton {
     max-width: 100px;
-    font-size: 10px;
+    font-size: 12px;
   }
 
   .toolbarGenerateArrayButton {
@@ -103,11 +98,11 @@
   }
 
   .toolbarPropertiesRange {
-    font-size: 10px;
+    font-size: 12px;
   }
 
   .toolbarArrayProperties {
-    font-size: 10px;
+    font-size: 12px;
     margin-right: 10px;
     max-width: 120px;
   }
@@ -130,7 +125,7 @@
 @media screen and (max-width: 950px) {
   .toolbarButton {
     max-width: 90px;
-    font-size: 8px;
+    font-size: 10px;
   }
 }
 
@@ -145,6 +140,7 @@
     flex-flow: column;
     flex-direction: column;
     height: auto;
+    margin-bottom: 20px;
   }
 
   .toolbarArrayGeneration {
@@ -168,16 +164,17 @@
   }
 
   .toolbarArrayProperties {
-    max-width: 120px;
+    max-width: 150px;
   }
 
   .toolbarPropertiesRange {
-    font-size: 12px;
+    font-size: 14px;
+    text-align: center;
   }
 
   .toolbarButton {
     min-width: 120px;
-    font-size: 12px;
+    font-size: 14px;
   }
 }
 
@@ -187,12 +184,12 @@
   }
 
   .toolbarPropertiesRange {
-    font-size: 10px;
+    font-size: 12px;
   }
 
   .toolbarButton {
     min-width: 100px;
-    font-size: 10px;
+    font-size: 12px;
   }
 }
 
@@ -202,12 +199,12 @@
   }
 
   .toolbarPropertiesRange {
-    font-size: 8px;
+    font-size: 12px;
   }
 
   .toolbarButton {
-    min-width: 80px;
-    font-size: 8px;
+    min-width: 90px;
+    font-size: 12px;
     padding: 6px;
   }
 }
@@ -218,16 +215,20 @@
   }
 
   .toolbarArrayProperties {
-    max-width: 40px;
+    max-width: 60px;
   }
 
   .toolbarPropertiesRange {
-    font-size: 7px;
+    font-size: 10px;
   }
 
   .toolbarButton {
-    min-width: 30px;
-    font-size: 7px;
+    min-width: 50px;
+    font-size: 10px;
     margin: 3px;
+  }
+
+  .toolbarGenerateArrayButton {
+    margin-right: 10px;
   }
 }

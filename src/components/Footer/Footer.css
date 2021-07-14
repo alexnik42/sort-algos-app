@@ -14,32 +14,14 @@
   }
 }
 
-@media screen and (max-width: 1450px) {
+@media screen and (max-width: 1250px) {
   .footerAuthor {
     font-size: 12px;
   }
 }
 
-@media screen and (max-width: 1250px) {
-  .footerAuthor {
-    font-size: 10px;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .footerAuthor {
-    font-size: 10px;
-  }
-}
-
-@media screen and (max-width: 500px) {
-  .footerAuthor {
-    font-size: 8px;
-  }
-}
-
 @media screen and (max-width: 420px) {
   .footerAuthor {
-    font-size: 7px;
+    font-size: 10px;
   }
 }

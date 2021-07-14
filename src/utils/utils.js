@@ -21,15 +21,15 @@ export function getNumWidth(length, windowWidth) {
     return 1;
   } else {
     return length < 5
-      ? 12
+      ? 16
       : length < 8
-      ? 10
+      ? 14
       : length < 11
-      ? 8
+      ? 12
       : length < 20
-      ? 6
+      ? 10
       : length < 50
-      ? 5
+      ? 6
       : length < 75
       ? 4
       : 2;

@@ -8,7 +8,7 @@
   display: grid;
   max-width: 100%;
   margin: 0 auto;
-  min-height: 650px;
+  min-height: 500px;
   justify-content: center;
   align-items: flex-end;
 }
@@ -41,11 +41,6 @@
   background-color: rgba(169, 92, 232, 0.8);
 }
 
-@media screen and (max-width: 1550px) {
-  .arrayBody {
-    padding: 30px;
-  }
-}
 
 @media screen and (max-width: 800px) {
   .arrayContainer {

@@ -1,15 +1,18 @@
 import React from "react";
 import { HEIGHT_MULTIPLIER, WIDTH_MULTIPLIER } from "utils/constants";
 import { getNumFontSize, getNumWidth } from "utils/utils";
+import { useWindowDimensions } from "utils/customHooks";
 import "./Array.css";
 
 function Array({ array }) {
   const numMargin = getNumWidth(array.length, window.innerWidth);
   const numWidth =
-    (window.innerWidth - 2 * numMargin * array.length) / array.length;
+  (window.innerWidth - 2 * numMargin * array.length) / array.length;
   const color = numWidth > 20 ? "white" : "transparent";
   const numFontSize = getNumFontSize(numWidth);
   const colWidth = window.innerWidth / (array.length * WIDTH_MULTIPLIER);
+  
+  useWindowDimensions();
 
   return (
     <div className="arrayContainer">
